@@ -1,0 +1,37 @@
+body{
+    background-color: rgb(132, 0, 255);
+}
+img{
+    position: relative;
+    width: 309;
+    height: auto;
+    margin-left: 50;
+    top: 300;
+    left: 300;
+}
+#lol{
+    background-color:firebrick;
+    
+}
+
+#notbanana{
+    position:relative;
+    width: auto;
+    display: flex;
+    top: 0;
+}
+
+#dietro{
+    position: relative; 
+    text-align: center;
+}
+
+#lunch{
+    position:relative;
+    display: flex;
+    justify-content: center;
+
+}
+#branzo{
+    text-align: center;
+}
