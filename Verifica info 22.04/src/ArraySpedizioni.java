@@ -1,11 +1,15 @@
 import java.rmi.server.SocketSecurityException;
-import java.util.ArrayList;
+import java.security.PublicKey;
+import java.util.*;
+import java.util.Map.Entry;
 
 public class ArraySpedizioni {
     public ArrayList<Spedizioni> ArraySpedizioni;
+    public HashMap<String, String > datiClienti;
 
-    public ArraySpedizioni() {
+    public ArraySpedizioni(HashMap< String,String> datiClienti) {
         this.ArraySpedizioni = new ArrayList<Spedizioni>();
+        this.datiClienti = datiClienti;
     }
 
     public int ricerca(String codice) {
@@ -28,7 +32,7 @@ public class ArraySpedizioni {
         System.out.println("è stato aggiunto una nuova spedizione ");
     }
 
-    public void cancella(String codice) { // cancella un elemento cercando il codice
+    public void cancellaSpedizione(String codice) { // cancella un elemento cercando il codice
         if (ArraySpedizioni.isEmpty()) {
             System.out.println("l'array è vuoto");
         } else {
@@ -61,5 +65,41 @@ public class ArraySpedizioni {
             c += p.toString() + "\n";
             return c;
         }
+    }
+
+    public void aggiungi(Clienti c) {
+        if (datiClienti.containsKey(c.getCodice())) { // check se è gia presente il
+            System.out.println("c'e un elemento con lo stesso codice");
+        } else {
+            datiClienti.put( c.getCodice(),c.getNome());
+            System.out.println("aggiunto il cliente");
+        }
+    }
+
+    public void cancellaCliente(Clienti c) {
+        if (datiClienti.containsKey(c.getCodice())) { // check se è gia presente il
+            datiClienti.remove(c.getCodice());
+            System.out.println("Il cliente è stato eliminato");
+        } else {
+            System.out.println("il cliente non esiste");
+        }
+    }
+
+    public static Set<String> getCodice(HashMap<String, String> map, String string) {
+
+        Set<String> chiave = new HashSet<>();
+        if (map.containsValue(string)) {
+            for (Entry<String, String> entry : map.entrySet()) {
+                if (Objects.equals(entry.getValue(), string)) {
+                    chiave.add(entry.getKey());
+                }
+            }
+        }
+        return chiave;
+    }
+
+    public static void getNome(HashMap<String, String> map, String string) {
+        String nome = map.get(string);
+        System.out.println(nome);
     }
 }

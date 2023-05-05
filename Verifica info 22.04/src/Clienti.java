@@ -1,21 +1,17 @@
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class Clienti {
     public String nome;
     public String codice;
-    static HashMap<String, String> datiClienti = new HashMap<>();
-    public Clienti(String nome, String codice) {
+
+    public Clienti(String codice, String nome) {
         this.nome = nome;
         this.codice = codice;
     }
 
-    public void aggiungi(Clienti c){
-        datiClienti.put(c.getCodice(),c.getNome());
-    }
-
-    public void cancella(Clienti c){
-        datiClienti.remove(c.getCodice());
-    }
+    
 
     public String getNome() {
         return nome;
