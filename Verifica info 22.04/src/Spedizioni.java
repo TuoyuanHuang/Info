@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Spedizioni {
     public String denominazione;
     public String indirizzo;
@@ -5,15 +7,17 @@ public class Spedizioni {
     public String nazione;
     public String numero;
     public String codice;
+    public HashMap<String, String> map;
 
 
-    public Spedizioni(String codice, String denominazione, String indirizzo, String citta, String nazione, String numero) {
+    public Spedizioni(String codice, String denominazione, String indirizzo, String citta, String nazione, String numero,HashMap map) {
         this.denominazione = denominazione;
         this.indirizzo = indirizzo;
         this.citta = citta;
         this.nazione = nazione;
         this.numero = numero;
         this.codice = codice;
+        this.map = map;
     }
 
 
@@ -76,6 +80,7 @@ public class Spedizioni {
                 ", citta='" + citta + '\'' +
                 ", nazione='" + nazione + '\'' +
                 ", numero=" + numero +
+                ", cliente= " + map.get(codice) +
                 '}';
     }
 }

@@ -27,17 +27,20 @@ public class ArraySpedizioni {
         return -1;
     }
 
-    public void inserisci(Spedizioni s1) { // inserisci una nuova spedizione
-        ArraySpedizioni.add(s1);
-        System.out.println("è stato aggiunto una nuova spedizione ");
+    public void inserisci(Spedizioni s1) throws ErroreSpedizioneGiaPresente{ // inserisci una nuova spedizione
+        if(ArraySpedizioni.contains(s1)){
+            throw new ErroreSpedizioneGiaPresente();
+        }else{
+            ArraySpedizioni.add(s1);
+        }
     }
 
-    public void cancellaSpedizione(String codice) { // cancella un elemento cercando il codice
+    public boolean cancellaSpedizione(String codice) { // cancella un elemento cercando il codice
         if (ArraySpedizioni.isEmpty()) {
-            System.out.println("l'array è vuoto");
+            return false;
         } else {
             ArraySpedizioni.remove(ricerca(codice));
-            System.out.println("rimmosso l'elemento: " + codice);
+            return true;
         }
 
     }
@@ -55,6 +58,7 @@ public class ArraySpedizioni {
         return s;
     }
 
+
     public String ricezione(String codice) {// stampa un singolo elemento con il codice
         if (ArraySpedizioni.isEmpty()) {
             return "Nessuna spedizione";
@@ -67,26 +71,24 @@ public class ArraySpedizioni {
         }
     }
 
-    public void aggiungi(Clienti c) {
+    public boolean aggiungi(Clienti c) {
         if (datiClienti.containsKey(c.getCodice())) { // check se è gia presente il
-            System.out.println("c'e un elemento con lo stesso codice");
+            return false;
         } else {
             datiClienti.put( c.getCodice(),c.getNome());
-            System.out.println("aggiunto il cliente");
+            return true;
         }
     }
 
-    public void cancellaCliente(Clienti c) {
+    public void cancellaCliente(Clienti c) throws ErroreClienteNonTrovato{
         if (datiClienti.containsKey(c.getCodice())) { // check se è gia presente il
             datiClienti.remove(c.getCodice());
-            System.out.println("Il cliente è stato eliminato");
         } else {
-            System.out.println("il cliente non esiste");
+            throw new ErroreClienteNonTrovato();
         }
     }
 
     public static Set<String> getCodice(HashMap<String, String> map, String string) {
-
         Set<String> chiave = new HashSet<>();
         if (map.containsValue(string)) {
             for (Entry<String, String> entry : map.entrySet()) {
