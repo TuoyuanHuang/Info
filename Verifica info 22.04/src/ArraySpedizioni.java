@@ -100,8 +100,7 @@ public class ArraySpedizioni {
         return chiave;
     }
 
-    public static void getNome(HashMap<String, String> map, String string) {
-        String nome = map.get(string);
-        System.out.println(nome);
+    public static String getNome(HashMap<String, String> map, String string) {
+        return map.get(string);
     }
 }
