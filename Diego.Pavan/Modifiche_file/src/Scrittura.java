@@ -1,6 +1,7 @@
 // scrive e legge un array di byte alla volta in modo sequenziale
 
 import java.io.*;
+import java.util.*;
 
 public class Scrittura{
 
@@ -15,9 +16,9 @@ public static void main(String args[]) throws IOException{
       String s3 = "abcde";
       String s4 = "*---*"; 
 
-      f.write(s1.getBytes() ); 	            // le stringhe sono scritte nel file
+      /*f.write(s1.getBytes() ); 	            // le stringhe sono scritte nel file
       f.write(s2.getBytes() );              // a partire dall'inizio file,	
-      f.write(s3.getBytes() );              // per scrivere alla fine del file: seek( f.length() );
+      f.write(s3.getBytes() );              // per scrivere alla fine del file: seek( f.length() );*/
 
       
 
@@ -42,8 +43,22 @@ public static void main(String args[]) throws IOException{
 	      String str= new String(b);
 	      System.out.println(" dato: "+ str);
           s= f.read(b);
-       } 
+       }
+       
+       Scanner sc = new Scanner(System.in);
+       int sw=sc.nextInt();
+       
+       switch(sw){
+          case 1:
+            User tempUser = new User(sc.next(), sc.next(), sc.next());
+            f.write(tempUser.getNome().getBytes());
+            f.write(tempUser.getCognome().getBytes());
+            f.write(tempUser.getIndirizzo().getBytes());
+            break;
 
+          case 2:
+            
+       }
        f.close();
 
   }// main
