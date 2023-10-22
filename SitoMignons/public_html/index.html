@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css2.css" />
+    <title>Mignons</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <style>
+        body {
+            font-size: larger;
+            background-color: beige;
+        }
+        
+        #titolo img {
+            width: 1000px;
+            height: 500px;
+        }
+        
+        #pulsante2 {
+            margin-bottom: 10px;
+        }
+        
+        #pannello b {
+            display: block;
+            font-weight: bold;
+            text-align: center;
+            right: 50%;
+            left: 50%;
+        }
+        
+        #pannello {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #div1 {
+            font-weight: bolder;
+        }
+        
+        #div2,
+        #div3,
+        #div4 {
+            margin-bottom: 10px;
+        }
+        
+        #im1,
+        #im2,
+        #im3 {
+            margin-bottom: 5px;
+        }
+        
+        #im1 img,
+        #im2 img,
+        #im3 img {
+            width: 250px;
+            height: 250px;
+        }
+        
+        #prezzo1,
+        #prezzo2,
+        #prezzo3 {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="titolo">
+        <img src="minions.jpg" alt="s" />
+    </div>
+    <input type="button" id="pulsante2" value="secret" />
+    <div id="pannello" style="visibility: hidden">
+        <b>
+        <a href="tableTop.html">giochi da tavolo</a>
+        <br />
+        <a href="stickbug.html">stickbugged</a>
+        <br />
+        <a href="Modulo.html">iscriviti al sito</a>
+      </b>
+    </div>
+
+    <div id="div1">Scegli il prodotto</div>
+
+    <div id="div2">
+        <a href="peluche.html">Peluche Minions</a>
+        <div id="im1">
+            <img src="pupazzo.jpg" alt="s" />
+        </div>
+        <div id="prezzo1">600€</div>
+    </div>
+
+    <div id="div3">
+        <a href="mignon.html">Mignons</a>
+        <div id="im2">
+            <img src="mignon.jfif" alt="s" />
+        </div>
+        <div id="prezzo2">30.99€/kg</div>
+    </div>
+
+    <div id="div4">
+        <a href="minions.html">Golden Minion Banana</a>
+        <div id="im3">
+            <img src="banana.jpg" alt="s" />
+        </div>
+        <div id="prezzo3">3.99€</div>
+    </div>
+
+    <div id="div4">
+        <a href="cannone.html">Cannone</a>
+        <div id="im3">
+            <img src="cannone.png" alt="s" />
+        </div>
+        <div id="prezzo3">3€</div>
+    </div>
+
+    <div id="div4">
+        <a href="hehe.html">HEHE</a>
+        <div id="im3">
+            <img src="cannone.png" alt="s" />
+        </div>
+        <div id="prezzo3">30€</div>
+    </div>
+
+    <script id="script1">
+        let vis = false;
+        let butt = document.getElementById("pulsante2");
+        butt.addEventListener("click", nascondiMenu);
+        X = true;
+
+        function nascondiMenu() {
+            if (X) {
+                console.log(X);
+                pannello.style.visibility = "visible";
+                X = false;
+            } else {
+                pannello.style.visibility = "hidden";
+                X = true;
+            }
+        }
+    </script>
+</body>
+
+</html>
